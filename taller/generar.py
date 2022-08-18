@@ -251,6 +251,8 @@ apellidos = ["MARTINEZ",
   "ORTIZ",
   "CORDON"]  
 
+grado = ['Parvulos', 'Jardin', '1º', '2º', '3º', '4º', '5º', '6º', '7º', '8º', '9º', '10º', '11º', 'Universidad']
+
 import random
 
 def generarNombreSexoEdad():
@@ -260,10 +262,12 @@ def generarNombreSexoEdad():
   else:
     nombre = random.choice(nombreMujer)
   nacionalidad = random.choice(['Colombia', 'España', 'Italia'])
-  edad = random.randint(18, 100)
+  edad = random.randint(5, 18)
   apellido1 = random.choice(apellidos)
   apellido2 = random.choice(apellidos)
+
   return {'nombre':nombre+" "+apellido1+" "+apellido2,
           'sexo':sexo,
           'edad':edad,
-          'nacionalidad':nacionalidad }
+          'nacionalidad':nacionalidad,
+          'grado':grado[edad-5] }
