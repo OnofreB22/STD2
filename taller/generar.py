@@ -266,8 +266,13 @@ def generarNombreSexoEdad():
   apellido1 = random.choice(apellidos)
   apellido2 = random.choice(apellidos)
 
+  if edad > 11:
+    g = grado[random.randint(edad-7, edad-5)]
+  else:
+    g = grado[edad-5]
+
   return {'nombre':nombre+" "+apellido1+" "+apellido2,
           'sexo':sexo,
           'edad':edad,
           'nacionalidad':nacionalidad,
-          'grado':grado[edad-5] }
+          'grado': g}
