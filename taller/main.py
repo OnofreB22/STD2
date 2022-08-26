@@ -6,10 +6,11 @@ lista = generarDatos(1)
 
 for elemento in lista:
     print(elemento)
-
+    
+'''
 print("Quick Sort")
 
 lista = QuickSort(lista)
-'''
+
 for elemento in lista:
     print(elemento)'''

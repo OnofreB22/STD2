@@ -266,7 +266,6 @@ def generarNombreSexoEdad():
   apellido1 = random.choice(apellidos)
   apellido2 = random.choice(apellidos)
   ano = random.randint(1950, 2022)
-  ultimoG = edad-5
 
   dic = {}
   estado = ['Aprobado', 'Aprobado' ,'Perdido', 'Aprobado', 'Desertado', 'Aprobado']
@@ -287,5 +286,4 @@ def generarNombreSexoEdad():
   return {'nombre':nombre+" "+apellido1+" "+apellido2,
             'sexo':sexo,
             'edad':edad,
-            'ano': ano,
             'cursos': dic}

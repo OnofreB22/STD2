@@ -6,7 +6,6 @@ class Dato:
     self.nombre = dato['nombre']
     self.sexo = dato['sexo']
     self.edad = dato['edad']
-    self.ano = dato['ano']
     self.cursos = dato['cursos']
   
   #==
