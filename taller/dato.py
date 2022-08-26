@@ -6,8 +6,8 @@ class Dato:
     self.nombre = dato['nombre']
     self.sexo = dato['sexo']
     self.edad = dato['edad']
-    self.nacionalidad = dato['nacionalidad']
-    self.grado = dato['grado']
+    self.ano = dato['ano']
+    self.cursos = dato['cursos']
   
   #==
   def __eq__ (self, __o: object) -> bool:
@@ -34,4 +34,4 @@ class Dato:
     return (self.edad != __o.edad) #or (self.sexo != __o.sexo)
 
   def __str__(self):
-    return f'OD=[nombre: {self.nombre}, edad: {self.edad}, sexo: {self.sexo}, nacionalidad: {self.nacionalidad}, grado: {self.grado}]'
+    return f'OD=[nombre: {self.nombre}, edad: {self.edad}, sexo: {self.sexo}, cursos: {self.cursos}]'

@@ -251,7 +251,8 @@ apellidos = ["MARTINEZ",
   "ORTIZ",
   "CORDON"]  
 
-grado = ['Parvulos', 'Jardin', '1º', '2º', '3º', '4º', '5º', '6º', '7º', '8º', '9º', '10º', '11º', 'Universidad']
+grado = ['1º', '2º', '3º', '4º', '5º', '6º', '7º', '8º', '9º', '10º', '11º']
+estado = ['Ganado', 'Perdido', 'Desertado']
 
 import random
 
@@ -261,18 +262,30 @@ def generarNombreSexoEdad():
     nombre = random.choice(nombreHombre)
   else:
     nombre = random.choice(nombreMujer)
-  nacionalidad = random.choice(['Colombia', 'España', 'Italia'])
-  edad = random.randint(5, 18)
+  edad = random.randint(6, 16)
   apellido1 = random.choice(apellidos)
   apellido2 = random.choice(apellidos)
+  ano = random.randint(1950, 2022)
+  ultimoG = edad-5
 
-  if edad > 11:
-    g = grado[random.randint(edad-7, edad-5)]
-  else:
-    g = grado[edad-5]
+  dic = {}
+  estado = ['Aprobado', 'Aprobado' ,'Perdido', 'Aprobado', 'Desertado', 'Aprobado']
+
+  for i in grado:
+    estadoaux = random.choice(estado)
+    if estadoaux == 'Aprobado':
+      dic.update({ano:{i:estadoaux}})
+    elif estadoaux == 'Perdido':
+      dic.update({ano:{i:estadoaux}})
+      ano+=1
+      dic.update({ano:{i:'Aprobado'}})
+    else:
+      dic.update({ano:{i:estadoaux}})
+      ano = random.randint(ano+1, ano+5)
+    ano += 1
 
   return {'nombre':nombre+" "+apellido1+" "+apellido2,
-          'sexo':sexo,
-          'edad':edad,
-          'nacionalidad':nacionalidad,
-          'grado': g}
+            'sexo':sexo,
+            'edad':edad,
+            'ano': ano,
+            'cursos': dic}
