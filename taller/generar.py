@@ -302,7 +302,7 @@ def generarNombreSexoEdad():
   departamento=random.choice(departamento_aux)
   
   dic = {}
-  estado = ['Aprobado', 'Aprobado' ,'Perdido', 'Aprobado', 'Desertado', 'Aprobado',"Aprobado","Perdido","Aprobado","Aprobado"]
+  estado = ['Aprobado', 'Aprobado' ,'Perdido', 'Aprobado', 'Desertado', 'Aprobado',"Aprobado","Perdido","Aprobado","Aprobado",'Aprobado']
   contador_aprobado=0
   contador_perdido=0
   contador_desertado=0
