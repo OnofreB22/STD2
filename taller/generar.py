@@ -1,3 +1,4 @@
+import random
 nombreHombre =["ANTONIO",
   "MANUEL",
   "JOSE",
@@ -253,8 +254,39 @@ apellidos = ["MARTINEZ",
 
 grado = ['1º', '2º', '3º', '4º', '5º', '6º', '7º', '8º', '9º', '10º', '11º']
 estado = ['Ganado', 'Perdido', 'Desertado']
-
-import random
+departamento_aux=["Amazonas",
+"Antioquia",
+"Arauca",
+"Atlántico",
+"Bogotá",
+"Bolívar",
+"Boyacá",
+"Caldas",
+"Caquetá",  
+"Casanare",
+"Cauca",
+"Cesar",
+"Chocó",
+"Córdoba",
+"Cundinamarca",
+"Guainía",  
+"Guaviare",
+"Huila",
+"La Guajira",
+"Magdalena",
+"Meta",
+"Nariño",
+"Norte de Santander",
+"Putumayo",
+"Quindío",
+"Risaralda",
+"San Andrés y Providencia",
+"Santander",
+"Sucre",
+"Tolima",
+"Valle del Cauca",
+"Vaupés",
+"Vichada"]
 
 def generarNombreSexoEdad():
   sexo = random.choice(['Masculino','Femenino'])
@@ -262,28 +294,46 @@ def generarNombreSexoEdad():
     nombre = random.choice(nombreHombre)
   else:
     nombre = random.choice(nombreMujer)
-  edad = random.randint(6, 16)
+  edad = 4
   apellido1 = random.choice(apellidos)
   apellido2 = random.choice(apellidos)
   ano = random.randint(1950, 2022)
-
+  ano_inicial=ano
+  departamento=random.choice(departamento_aux)
+  
   dic = {}
-  estado = ['Aprobado', 'Aprobado' ,'Perdido', 'Aprobado', 'Desertado', 'Aprobado']
+  estado = ['Aprobado', 'Aprobado' ,'Perdido', 'Aprobado', 'Desertado', 'Aprobado',"Aprobado","Perdido","Aprobado","Aprobado"]
+  contador_aprobado=0
+  contador_perdido=0
+  contador_desertado=0
 
   for i in grado:
     estadoaux = random.choice(estado)
     if estadoaux == 'Aprobado':
       dic.update({ano:{i:estadoaux}})
+      contador_aprobado+=1
     elif estadoaux == 'Perdido':
       dic.update({ano:{i:estadoaux}})
       ano+=1
+      contador_perdido+=1
       dic.update({ano:{i:'Aprobado'}})
     else:
       dic.update({ano:{i:estadoaux}})
       ano = random.randint(ano+1, ano+5)
+      contador_desertado+=1
     ano += 1
+  edad = ano-ano_inicial+5
 
-  return {'nombre':nombre+" "+apellido1+" "+apellido2,
-            'sexo':sexo,
-            'edad':edad,
-            'cursos': dic}
+  prob_aprob=(100*contador_aprobado)/11
+  prob_perd=(100*contador_perdido)/11
+  prob_dese=(100*contador_desertado)/11
+
+  return {'Nombre':nombre+" "+apellido1+" "+apellido2,
+            'Sexo':sexo,
+            'Edad':edad,
+            'Cursos': dic,
+            "Departamento":departamento,
+            "Probabilidad Aprobar" : prob_aprob,
+            "Probabilidad Perder" : prob_perd,
+            "Probabilidad Desertar" : prob_dese}
+          
